@@ -1,5 +1,7 @@
 package task2_23;
 
+import java.util.ArrayList;
+
 import constants.Constants;
 import language.Student;
 import person.Person;
@@ -9,7 +11,7 @@ public class Task2_23 {
 
     public static void main(String[] args) {
         //Personクラスのインスタンスを格納するArrayListクラス型の変数persons
-       
+    	 ArrayList<Person> persons = new ArrayList<Person>(); 
         
         //①Personクラスの変数名「yamada」というインスタンスを作成して下さい。
         //引数には1:山田太郎 2:Java を入れて下さい。
@@ -37,9 +39,9 @@ public class Task2_23 {
         //⑤「〇〇が△△を学んでいます」という表示で山田さん、石谷さんが何を学んでいるか出力して下さい。
         
         //ここに解答
-        Student students1= new Student("山田太郎","JAVA");
+        Student students1= new Student(yamada.getName(),yamada.getLanguage());
         students1.studyLanguage();
-        Student students2= new Student("石谷花子","HTML");
+        Student students2= new Student(isitani.getName(),isitani.getLanguage());
         students2.studyLanguage();
     }
 
