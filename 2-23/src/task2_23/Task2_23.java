@@ -1,7 +1,5 @@
 package task2_23;
 
-import java.util.ArrayList;
-
 import constants.Constants;
 import language.Student;
 import person.Person;
@@ -11,7 +9,7 @@ public class Task2_23 {
 
     public static void main(String[] args) {
         //Personクラスのインスタンスを格納するArrayListクラス型の変数persons
-        ArrayList<Person> persons = new ArrayList<Person>(); 
+       
         
         //①Personクラスの変数名「yamada」というインスタンスを作成して下さい。
         //引数には1:山田太郎 2:Java を入れて下さい。
