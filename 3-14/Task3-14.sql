@@ -52,7 +52,7 @@ where quantity>=20
 
 -- 9. 在庫テーブルの商品（'S987'）かつ、店舗（'EA01'）の在庫数を10増やす更新を行って下さい。※実行後のSELECT結果も貼付すること。
 update stock_table
-set quantity=60
+set quantity=quantity+60
 where goods_code='S987' and store_code='EA01';
 
 -- 10. 商品コード（'Z939'）かつ、店舗コード（'EA04'）に関連する在庫情報を在庫テーブルから削除して下さい。※実行後の「データ出力」画面も貼付すること。
