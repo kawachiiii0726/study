@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'タスク情報一覧', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>タスク情報一覧</h1>
+
+    <div class="float-end">
+      <a th:href="@{/task/add}" class="btn btn-primary">新規登録はこちら</a>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タスク名</th>
+          <th>タスク状況</th>
+          <th>作成日</th>
+          <th>完了日</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- モデルに model.addAttribute("taskList", …) を前提 -->
+        <tr th:each="task : ${taskList}" class="align-middle">
+          <td th:text="${task.taskId}"></td>
+          <td th:text="${task.taskName}"></td>
+          <td th:text="${task.taskStatus}"></td>
+          <!-- LocalDate のときは #temporals を使用 -->
+          <td th:text="${task.startDate != null ? #dates.format(task.startDate, 'yyyy/MM/dd') : ''}"></td>
+          <td th:text="${task.endDate   != null ? #dates.format(task.endDate,   'yyyy/MM/dd') : ''}"></td>
+          <!-- /task/{id} に遷移（@PathVariable("id") Integer id を前提） -->
+          <td><a th:href="@{/task/{id}(id=${task.taskId})}" class="btn btn-secondary">詳細</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
