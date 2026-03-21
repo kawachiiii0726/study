@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>FC Barcelona Players</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+    <header class="barca-header">
+        <div class="header-container">
+           <img th:src="@{/images/fcb-logo.jpg}" class="barca-logo" alt="FCB Logo">
+            <span class="header-title">トップチーム</span>
+        </div>
+    </header>
+
+    <nav class="sub-nav">
+        <ul class="nav-list">
+            <li>ニュース</li>
+            <li>スケジュール</li>
+            <li>チケット</li>
+            <li>結果</li>
+            <li>順位</li>
+            <li class="active">選手</li>
+            <li>写真</li>
+            <li>タイトル</li>
+        </ul>
+    </nav>
+
+    <section class="main-content">
+        <div class="title-area">
+            <h1 class="main-title">FC BARCELONA FIRST TEAM</h1>
+           
+        </div>
+
+        <div class="filter-group">
+            <button class="filter-btn">ゴールキーパー</button>
+            <button class="filter-btn">ディフェンダー</button>
+            <button class="filter-btn">ミッドフィルダー</button>
+            <button class="filter-btn">フォワード</button>
+            <button class="filter-btn">コーチスタッフ</button>
+        </div>
+
+
+
+		<h2 class="section-heading">MIDFIELDERS</h2>
+		<div class="player-grid">
+		    <th:block th:each="player : ${players}" th:if="${player.position == 'MIDFIELDER'}">
+		        <article class="player-card">
+		            <div class="card-bg"></div>
+		            <div class="bg-number" th:text="${player.backNumber}"></div>
+		            <img th:src="${player.imageUrl}" class="player-image">
+		            <div class="info-bar">
+		                <p class="number-row" th:text="${player.backNumber}"></p>
+		                <p class="pos" th:text="${player.position}"></p>
+		                <h3 class="name" th:text="${player.name}"></h3>
+		            </div>
+		        </article>
+		    </th:block>
+		</div>
+
+		<h2 class="section-heading">FORWARDS</h2>
+		<div class="player-grid">
+		    <th:block th:each="player : ${players}" th:if="${player.position == 'FORWARD'}">
+		        <article class="player-card">
+		            <div class="card-bg"></div>
+		            <div class="bg-number" th:text="${player.backNumber}"></div>
+		            <img th:src="${player.imageUrl}" class="player-image">
+		            <div class="info-bar">
+		                <p class="number-row" th:text="${player.backNumber}"></p>
+		                <p class="pos" th:text="${player.position}"></p>
+		                <h3 class="name" th:text="${player.name}"></h3>
+		            </div>
+		        </article>
+		    </th:block>
+		</div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+:root {
+    --barca-dark-blue: #003271;
+    --barca-red: #a50044;
+    --barca-light-gray: #f7f7f7;
+}
+
+body {
+    margin: 0;
+    font-family: 'Oswald', 'Arial Black', sans-serif;
+    background-color: white;
+    color: #333;
+}
+
+/* ヘッダー */
+.barca-header {
+    background-color: var(--barca-dark-blue);
+    padding: 10px 50px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.barca-logo {
+    height: 65px;
+    margin-right: 20px;
+}
+
+.header-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* サブナビ */
+.sub-nav {
+    background-color: var(--barca-red);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 12px 0;
+}
+
+.nav-list li {
+    color: white;
+    padding: 0 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.nav-list li.active {
+    opacity: 1;
+    border-bottom: 3px solid white;
+}
+
+/* メインコンテンツエリア */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.title-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.presented-by {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.presented-by img {
+    height: 40px;
+}
+
+/* フィルターボタン */
+.filter-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background-color: var(--barca-light-gray);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    color: #555;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* 選手一覧グリッド */
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* 選手カード（既存のデザインを調整） */
+.player-card {
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 10 / 13;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #004d98 45%, #a50044 45.5%);
+    z-index: 1;
+}
+
+.bg-number {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+.player-image {
+    position: absolute;
+    bottom: 90px;      /* info-barの上ピッチリに配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;       /* カード幅いっぱいに拡大 */
+    height: calc(100% - 90px); /* info-barの高さを除いた全高 */
+    z-index: 3;
+    object-fit: contain; /* アスペクト比を保って収める */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); /* 選手を少し浮き立たせる */
+}
+
+/* 下部の白い情報エリア（高さを固定せず、中身に合わせる） */
+.info-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* 高さ (height) の指定を削除 */
+    background: white;
+    padding: 10px 15px; /* 上下の余白を少し詰める */
+    z-index: 4;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 上詰めに変更 */
+}
+
+/* 背番号 */
+.number-row {
+    color: #004d98;
+    font-size: 1.6rem; /* 少し小さく */
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ポジション */
+.pos {
+    font-size: 0.75rem; /* 少し小さく */
+    color: #777;
+    text-transform: uppercase;
+    margin: 2px 0;
+    line-height: 1;
+}
+
+/* 選手名（見切れないように調整） */
+.name {
+    margin: 2px 0 0 0;
+    font-size: 1.1rem; /* 見切れないサイズに縮小 */
+    font-weight: 900;
+    color: #111;
+    text-transform: uppercase;
+    /* 見切れた場合の処理を念のため追加 */
+    white-space: nowrap; /* 改行しない */
+    overflow: hidden;    /* はみ出た分は隠す */
+    text-overflow: ellipsis; /* はみ出たら「...」にする */
+}
